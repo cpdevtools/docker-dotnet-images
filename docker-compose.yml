@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  dotnet-sdk:
+    image: dotnet-sdk
+    build:
+      dockerfile: dockerfile
+      context: ./src/dotnet-sdk
+      secrets:
+        - GITHUB_USER
+        - GITHUB_TOKEN
+      args:
+        VERSION_DOTNET: ${VERSION_DOTNET}
+        VERSION_SUFFIX_DOTNET: ${VERSION_SUFFIX_DOTNET_SDK}
+        VERSION_NODEJS: ${VERSION_NODEJS}
+
+  dotnet:
+    image: dotnet
+    build:
+      dockerfile: dockerfile
+      context: ./src/dotnet
+      args:
+        VERSION_DOTNET: ${VERSION_DOTNET}
+        VERSION_SUFFIX_DOTNET: ${VERSION_SUFFIX_DOTNET}
+
+secrets:
+  GITHUB_USER:
+    environment: GITHUB_USER
+  GITHUB_TOKEN:
+    environment: GITHUB_TOKEN

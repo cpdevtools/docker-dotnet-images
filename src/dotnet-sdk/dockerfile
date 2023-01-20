@@ -1,0 +1,24 @@
+ARG VERSION_DOTNET
+ARG VERSION_SUFFIX_DOTNET
+
+FROM mcr.microsoft.com/dotnet/sdk:${VERSION_DOTNET}${VERSION_SUFFIX_DOTNET}
+ARG VERSION_NODEJS
+
+# Install Remote debugger
+ADD https://aka.ms/getvsdbgsh ./getvsdbg.sh
+RUN chmod +x getvsdbg.sh
+RUN ./getvsdbg.sh -v latest -r linux-x64 -l /remote_debugger
+
+# jre wont install unless man folder is created ...
+RUN mkdir -p /usr/share/man/man1
+RUN apt-get update -y && apt-get install -y \
+    default-jre
+
+# install nodejs
+RUN curl --silent --location https://deb.nodesource.com/setup_${VERSION_NODEJS} | bash -
+RUN apt-get install -y \
+    nodejs
+
+RUN npm i -g yarn pnpm
+
+WORKDIR /src

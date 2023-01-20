@@ -1,0 +1,14 @@
+{
+    "name": "@cpdevtools/docker-dotnet-images",
+    "version": "5.0.0-dev.0",
+    "private": true,
+    "description": "Prebuilt docker images for dotnet",
+    "scripts": {
+        "build": "run-s build:*",
+        "build:dotnet": "docker compose build dotnet --progress=plain",
+        "build:dotnet-sdk": "docker compose build dotnet-sdk  --progress=plain"
+    },
+    "devDependencies": {
+        "npm-run-all2": "^6.0.4"
+    }
+}

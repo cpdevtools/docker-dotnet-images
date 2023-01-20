@@ -1,0 +1,23 @@
+ARG VERSION_DOTNET
+ARG VERSION_SUFFIX_DOTNET
+
+FROM mcr.microsoft.com/dotnet/aspnet:${VERSION_DOTNET}${VERSION_SUFFIX_DOTNET}
+EXPOSE 80
+
+WORKDIR /tmp
+
+RUN apt-get update && apt-get install -y \
+	unzip \
+    curl 
+
+# Install Remote debugger
+ADD https://aka.ms/getvsdbgsh ./getvsdbg.sh
+RUN chmod +x getvsdbg.sh
+RUN ./getvsdbg.sh -v latest -r linux-x64 -l /remote_debugger
+
+# Delete Temp files
+RUN rm -Rf ./*
+RUN rm -rf /var/lib/apt/lists/*
+RUN apt-get clean && apt --fix-broken install
+
+WORKDIR /app
