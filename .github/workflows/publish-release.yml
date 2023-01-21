@@ -42,7 +42,7 @@ jobs:
       - name: Publish
         uses: ./.github/actions/publish-docker-image
         with:
-          image: dotnet
+          image: dotnet-sdk
 
   create-release:
     runs-on: ubuntu-latest

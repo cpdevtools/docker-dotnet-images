@@ -6,7 +6,12 @@
     "scripts": {
         "build": "run-s build:*",
         "build:dotnet": "docker compose build dotnet --progress=plain",
-        "build:dotnet-sdk": "docker compose build dotnet-sdk  --progress=plain"
+        "build:dotnet-sdk": "docker compose build dotnet-sdk  --progress=plain",
+        "test": "echo \"No test to run.\"",
+        "actions-build": "pnpm run build",
+        "actions-build-dotnet": "pnpm run build:dotnet",
+        "actions-build-dotnet-sdk": "pnpm run build:dotnet-sdk",
+        "actions-test": "pnpm run test"
     },
     "devDependencies": {
         "npm-run-all2": "^6.0.4"
