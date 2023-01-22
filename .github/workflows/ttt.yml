@@ -15,7 +15,11 @@ jobs:
       - name: Checkout Project
         uses: actions/checkout@v3.3.0
 
-      - name: Check Version
+      - id: checkVersion
+        name: Check Version
+        uses: cpdevtools/action-versions@v0.5
+
+      - name: Branches
         run: |
           echo ${{github.ref}}
           echo ${{github.base_ref}}
