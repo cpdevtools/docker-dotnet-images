@@ -16,6 +16,15 @@ runs:
       with:
         failInvalidCanCreate: true
 
+
+    # - name: Merge
+    #   uses: devmasx/merge-branch@master
+    #   with:
+    #     type: now
+    #     from_branch: development
+    #     target_branch: staging
+    #     github_token: ${{ inputs.githubToken }}
+
     - name: Create Release
       id: create_release
       uses: ncipollo/release-action@v1.12.0
