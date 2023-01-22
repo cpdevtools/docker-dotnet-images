@@ -19,7 +19,7 @@ jobs:
         name: Check Version
         uses: cpdevtools/action-versions@v0.5
         with:
-          branch: ${{github.ref}}
+          branch: '${{github.base_ref}}'
 
       - name: Branches
         run: |
