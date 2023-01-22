@@ -18,6 +18,8 @@ jobs:
       - id: checkVersion
         name: Check Version
         uses: cpdevtools/action-versions@v0.5
+        with:
+          branch: ${{github.ref}}
 
       - name: Branches
         run: |
