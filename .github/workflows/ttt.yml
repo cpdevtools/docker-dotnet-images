@@ -1,9 +1,11 @@
-name: Publish Node Package
+name: Test context vars
+
 
 on:
-  push:
+  pull_request:
+    types: [closed]
     branches:
-      - "release/*"
+      - 'release/*'
 
 jobs:
   setup:
