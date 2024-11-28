@@ -24,5 +24,8 @@ RUN apt-get install -y \
 
 RUN npm i -g yarn pnpm
 
+RUN  useradd --shell /bin/bash -u 1000 -o -c "" -m node
+USER 1000
+
 WORKDIR /src
 VOLUME /src
