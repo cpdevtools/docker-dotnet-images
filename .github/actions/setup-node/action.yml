@@ -5,16 +5,16 @@ inputs:
   pnpmVersion:
     description: "The version of pnpm to install"
     required: false
-    default: "7.6.0"
+    default: "9.13.2"
   nodeVersion:
     description: "The version of NodeJs to install"
     required: false
-    default: "16.18.1"
+    default: "20.18.0"
 
 runs:
   using: "composite"
   steps:
-    - uses: pnpm/action-setup@v2.2.4
+    - uses: pnpm/action-setup@v2.4.1
       with:
         version: ${{ inputs.pnpmVersion }}
         run_install: false
