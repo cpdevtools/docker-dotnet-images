@@ -1,6 +1,6 @@
 {
     "name": "@cpdevtools/docker-dotnet-images",
-    "version": "9.0.0-dev.1",
+    "version": "9.0.0-dev.2",
     "private": true,
     "description": "Prebuilt docker images for dotnet",
     "scripts": {
