@@ -4,13 +4,13 @@ ARG VERSION_SUFFIX_DOTNET
 FROM mcr.microsoft.com/dotnet/sdk:${VERSION_DOTNET}${VERSION_SUFFIX_DOTNET}
 ARG VERSION_NODEJS
 
-# Install Remote debugger
-WORKDIR /vsdbg
-RUN apt-get update \
-  && apt-get install -y --no-install-recommends \
-  unzip \
-  && rm -rf /var/lib/apt/lists/* \
-  && curl -sSL https://aka.ms/getvsdbgsh | bash /dev/stdin -v latest -l /vsdbg
+# # Install Remote debugger
+# WORKDIR /vsdbg
+# RUN apt-get update \
+#   && apt-get install -y --no-install-recommends \
+#   unzip \
+#   && rm -rf /var/lib/apt/lists/* \
+#   && curl -sSL https://aka.ms/getvsdbgsh | bash /dev/stdin -v latest -l /vsdbg
 
 # jre wont install unless man folder is created ...
 RUN mkdir -p /usr/share/man/man1
