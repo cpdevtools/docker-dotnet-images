@@ -4,6 +4,8 @@
     "private": true,
     "description": "Prebuilt docker images for dotnet",
     "scripts": {
+        "prepare": "run-s prepare:*",
+        "prepack:git": "git config pull.rebase false",
         "build": "run-s build:*",
         "build:dotnet": "docker compose build dotnet --progress=plain",
         "build:dotnet-sdk": "docker compose build dotnet-sdk  --progress=plain",
